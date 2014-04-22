@@ -1,0 +1,156 @@
+.media-manager .modal-dialog,
+.media-manager-upload .modal-dialog {
+    width: 95%;
+}
+
+.media-manager .modal-header {
+    padding-bottom: 10px;
+    border-bottom: 0;
+}
+
+.media-manager .modal-content {
+    height: 95%;
+}
+
+.media-manager .modal-body {
+    padding: 0;
+    min-height: 480px;
+}
+
+.media-manager .modal-footer {
+    padding: 9px 20px 10px;
+}
+
+.media-manager .navbar-top {
+    border-radius: 0;
+    margin-bottom: 10px;
+}
+
+.media-manager form[role=search] {
+    display: table;
+    padding: 0 0 0 1px;
+}
+
+.media-manager .manager-body {
+    padding: 0 10px;
+    position: relative;
+}
+
+.media-manager .sort-menu > li > a,
+.media-manager .order-menu > li > a {
+    position: relative;
+    padding: 3px 24px;
+}
+
+.media-manager .sort-menu > li > a > .glyphicon-ok,
+.media-manager .order-menu > li > a > .glyphicon-ok {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+.media-manager .breadcrumb {
+    margin-bottom: 10px;
+}
+
+.media-manager .glyphicon-home {
+    color: #000;
+}
+.media-manager .grid-wrapper {
+    height: 480px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.media-manager .grid {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+.media-manager .grid li {
+    width: 152px;
+    display: inline-block;
+    margin: 4px 4px 8px;
+    padding: 0;
+    background: #f8f8f8;
+    border: 2px solid #eaeaea;
+    border-radius: 4px;
+    transition: border 0.3s linear;
+}
+.media-manager .grid li.selected {
+    border-color: #428bca;
+}
+.media-manager .grid li figure {
+    width: 148px;
+    display: table;
+    position: relative;
+}
+.media-manager .grid li figure a:first-child {
+    width: 148px;
+    height: 100px;
+    line-height: 100px;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+.media-manager .grid li figure a:first-child i {
+    vertical-align: middle;
+    font-size: 4em;
+}
+.media-manager .grid li figure a:first-child > img {
+    width: 148px;
+    max-width: 148px;
+    height: 100px;
+    max-height: 100px;
+}
+.media-manager .grid li figure a:last-child {
+    width: 148px;
+    height: 40px;
+    display: table;
+    table-layout: fixed;
+    line-height: 16px;
+    padding: 4px;
+    background: #fff;
+    overflow: hidden;
+    text-align: center;
+}
+.media-manager .grid li figure a:last-child span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.media-manager-upload .modal-footer,
+.media-manager-rename .modal-footer {
+    margin-top: 0;
+}
+.media-manager-rename .form-group {
+    margin-bottom: 0;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .media-manager .navbar-nav {
+        margin: 7.5px -5px;
+    }
+    .media-manager .navbar-nav li > a:not([href]) {
+        padding: 5px 10px;
+    }
+    .navbar-nav > li {
+        float: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .media-manager .navbar-top li > button,
+    .media-manager .navbar-top li > form,
+    .media-manager .navbar-top li > .select-list {
+        margin: 10px 5px;
+    }
+    .media-manager .navbar-top li > .action {
+        margin: 10px 1px;
+    }
+    .media-manager .navbar-top li > .filter {
+        margin: 10px 1px;
+    }
+    .media-manager .navbar-top li > .select-list {
+        margin-right: 0;
+    }
+}
