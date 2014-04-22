@@ -1,6 +1,3 @@
 media-manager
 =============
-Laravel
-TinyMCE
-jQuery
-Twitter bootstrap
+Laravel Media Manager v1.0.0
