@@ -67,7 +67,7 @@ class MediaManager {
             $search = null;
         }
 
-        $cmd = __NAMESPACE__ . '\\Commands\\' . Input::get('cmd');
+        $cmd = __NAMESPACE__ . '\\Commands\\' . ucfirst(Input::get('cmd'));
 
         if(class_exists($cmd) && in_array('Norkunas\MediaManager\Commands\CommandInterface', class_implements($cmd))) {
             return Response::json(with(new $cmd())->run(array(
