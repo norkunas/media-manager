@@ -17,19 +17,11 @@ class MediaManager {
     protected static $order = array('asc', 'desc');
 
     protected $supportedLocales;
-
     protected $uploadsPath;
-
-    protected $thumbsPath;
-    protected $thumbWidth;
-    protected $thumbHeight;
 
     public function __construct() {
         $this->supportedLocales = $this->getSupportedLocales();
         $this->uploadsPath = rtrim(str_replace('\\', '/', Config::get('media-manager::path.uploads')), '/');
-        $this->thumbsPath = rtrim(str_replace('\\', '/', Config::get('media-manager::path.thumbs')), '/');
-        $this->thumbWidth = Config::get('media-manager::thumbs.width');
-        $this->thumbHeight = Config::get('media-manager::thumbs.height');
     }
 
     public function init() {
