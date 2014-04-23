@@ -8,13 +8,7 @@ use Config;
 use Response;
 use SplFileInfo;
 /**
- * TODO:
- *  - Thumbnails
- *  - Rename "error" to "message" in locales
- *  - Remove unnecessary messages from locale files
- *  - Fix all translate messages, because there are where not showing translations
- *
- * mov format shoud have video/quicktime mime type, find out why it doesnt
+ * mov format shoud have video/quicktime mime type
  */
 
 class MediaManager {
