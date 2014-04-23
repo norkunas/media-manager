@@ -10,7 +10,9 @@ class CreateFolder extends AbstractCommand implements CommandInterface {
         try {
             File::makeDirectory($params['uploads_path'] . '/' . (!empty($params['path']) ? $params['path'] . '/' : '') . $params['file']->getBasename());
 
-            return self::success(Lang::get('media-manager::message.create.success_folder'));
+            return self::success(Lang::get('media-manager::message.create.success_folder', array(
+                'title' => $params['file']->getBasename()
+            )));
         } catch(Exception $e) {
             return self::error($e->getMessage());
         }
