@@ -6,6 +6,12 @@ use finfo;
 
 class GetFileInfo extends AbstractCommand implements CommandInterface {
     public function run($params) {
+        if(!$params['file']->isFile()) {
+            return self::success('', array(
+                'exists' => false
+            ));
+        }
+
         $finfo = new finfo(FILEINFO_MIME_TYPE);
         $mime = $finfo->file($params['file']->getPathname());
 
