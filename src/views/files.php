@@ -6,7 +6,7 @@
     <i class="glyphicon glyphicon-folder-close"></i>
    {{?? file.type == 'image'}}
     {{? file.thumbnail }}
-     <img src="{{=file.url}}" width="" height="" alt="" title="">
+     <img src="{{=file.thumbnail}}" width="144" height="100" alt="{{=file.name}}" title="{{=file.name}}">
     {{??}}
      <i class="glyphicon glyphicon-picture"></i>
     {{?}}

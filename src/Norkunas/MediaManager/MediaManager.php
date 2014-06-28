@@ -22,6 +22,7 @@ class MediaManager {
     public function __construct() {
         $this->supportedLocales = $this->getSupportedLocales();
         $this->uploadsPath = rtrim(str_replace('\\', '/', Config::get('media-manager::path.uploads')), '/');
+        $this->thumbsPath = rtrim(str_replace('\\', '/', Config::get('media-manager::path.thumbnails')), '/');
     }
 
     public function init() {
@@ -73,6 +74,7 @@ class MediaManager {
             return Response::json(with(new $cmd())->run(array(
                 'assets' => $this->asset(),
                 'uploads_path' => $this->uploadsPath,
+                'thumbs_path' => $this->thumbsPath,
                 'path' => $path,
                 'file' => $file,
                 'target' => $target,

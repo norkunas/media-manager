@@ -2,11 +2,14 @@
 namespace Norkunas\MediaManager\Commands;
 
 use URL;
+use File;
 use finfo;
+use Config;
 use Exception;
 use SplFileInfo;
 use FilesystemIterator;
 use RecursiveIteratorIterator;
+use Intervention\Image\Image;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\Iterator\RecursiveDirectoryIterator;
 
@@ -119,13 +122,20 @@ class GetFiles extends AbstractCommand implements CommandInterface {
             foreach(iterator_to_array($files) as $file) {
                 $mime = $finfo->file($file);
 
+                if(!File::exists($thumb = $params['thumbs_path'] . '/' . $file->getBasename())) {
+                    $img = Image::make($file->getRealPath());
+                    $img->grab(144, 100);
+                    $img->save($thumb);
+                }
+
                 $data = array(
                     'name' => $file->getBasename(),
                     'type' => current(explode('/', $mime)),
                     'mime' => $mime,
                     'path' => $params['path'],
                     'extension' => $file->getExtension(),
-                    'url' => URL::to(ltrim(str_replace(str_replace('\\', '/', public_path()), '', str_replace('\\', '/', $file->getPath())), '\/') . '/' . $file->getBasename())
+                    'url' => URL::to(ltrim(str_replace(str_replace('\\', '/', public_path()), '', str_replace('\\', '/', $file->getPath())), '\/') . '/' . $file->getBasename()),
+                    'thumbnail' => Config::get('media-manager::url.thumbnails') . '/' . $file->getBasename()
                 );
 
                 $filesStack[] = $data;
