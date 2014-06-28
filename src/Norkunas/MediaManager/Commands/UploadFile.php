@@ -1,7 +1,6 @@
 <?php
 namespace Norkunas\MediaManager\Commands;
 
-use Config;
 use Exception;
 
 class UploadFile extends AbstractCommand implements CommandInterface {
