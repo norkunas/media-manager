@@ -6,7 +6,9 @@ use Exception;
 class UploadFile extends AbstractCommand implements CommandInterface {
     public function run($params) {
         try {
-            $params['file']->move($params['uploads_path'] . '/' . $params['path'], $params['file']->getClientOriginalName());
+            $filename = str_replace(' ', '_', trim($params['file']->getClientOriginalName()));
+
+            $params['file']->move($params['uploads_path'] . '/' . $params['path'], $filename);
 
             return self::success();
         } catch(Exception $e) {

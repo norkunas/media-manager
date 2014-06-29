@@ -70,7 +70,7 @@ class MediaManager {
 
         $cmd = __NAMESPACE__ . '\\Commands\\' . ucfirst(Input::get('cmd'));
 
-        if(class_exists($cmd) && in_array('Norkunas\MediaManager\Commands\CommandInterface', class_implements($cmd))) {
+        if(class_exists($cmd) && in_array(__NAMESPACE__ . '\Commands\CommandInterface', class_implements($cmd))) {
             return Response::json(with(new $cmd())->run(array(
                 'assets' => $this->asset(),
                 'uploads_path' => $this->uploadsPath,

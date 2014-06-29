@@ -122,7 +122,7 @@ class GetFiles extends AbstractCommand implements CommandInterface {
             foreach(iterator_to_array($files) as $file) {
                 $mime = $finfo->file($file);
 
-                if(!File::exists($thumb = $params['thumbs_path'] . '/' . $file->getBasename())) {
+                if(!File::exists($thumb = $params['thumbs_path'] . '/' . md5($file->getRealPath()) . '.' . $file->getExtension())) {
                     $img = Image::make($file->getRealPath());
                     $img->grab(144, 100);
                     $img->save($thumb);
