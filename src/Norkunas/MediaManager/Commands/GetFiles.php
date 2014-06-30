@@ -122,7 +122,9 @@ class GetFiles extends AbstractCommand implements CommandInterface {
             foreach(iterator_to_array($files) as $file) {
                 $mime = $finfo->file($file);
 
-                if(!File::exists($thumb = $params['thumbs_path'] . '/' . md5($file->getRealPath()) . '.' . $file->getExtension())) {
+                $thumbName = md5($file->getRealPath()) . '.' . $file->getExtension();
+
+                if(!File::exists($thumb = $params['thumbs_path'] . '/' . $thumbName)) {
                     $img = Image::make($file->getRealPath());
                     $img->grab(144, 100);
                     $img->save($thumb);
@@ -135,7 +137,7 @@ class GetFiles extends AbstractCommand implements CommandInterface {
                     'path' => $params['path'],
                     'extension' => $file->getExtension(),
                     'url' => URL::to(ltrim(str_replace(str_replace('\\', '/', public_path()), '', str_replace('\\', '/', $file->getPath())), '\/') . '/' . $file->getBasename()),
-                    'thumbnail' => Config::get('media-manager::url.thumbnails') . '/' . $file->getBasename()
+                    'thumbnail' => Config::get('media-manager::url.thumbnails') . '/' . $thumbName
                 );
 
                 $filesStack[] = $data;
